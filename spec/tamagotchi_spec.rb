@@ -31,5 +31,29 @@ describe(Tamagotchi) do
     end
   end
 
+  describe('#food_suck') do
+    it('decrease food level') do
+      new_pet = Tamagotchi.new("Trogdor")
+      new_pet.food_suck(5)
+      expect(new_pet.food_level()).to(eq(5))
+  end
+end
+
+  describe('#sleep_suck') do
+    it('decrease sleep level') do
+      new_pet = Tamagotchi.new("Trogdor")
+      new_pet.sleep_suck(5)
+      expect(new_pet.sleep_level()).to(eq(5))
+    end
+  end
+
+  describe('#activity_suck') do
+    it('decrease activity level') do
+      new_pet = Tamagotchi.new("Trogdor")
+      new_pet.activity_suck(5)
+      expect(new_pet.activity_level()).to(eq(5))
+    end
+  end
+
 
 end

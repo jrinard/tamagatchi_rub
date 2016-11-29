@@ -55,5 +55,12 @@ end
     end
   end
 
+  describe("#time_passes") do
+    it("passes the time") do
+      new_pet = Tamagotchi.new("dude")
+      new_pet.update_pet(6)
+      expect(new_pet.life_level()).to(eq(12))
+    end
+  end
 
 end

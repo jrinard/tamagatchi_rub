@@ -1,4 +1,6 @@
 class Tamagotchi
+  @@all_tama = []
+
   define_method(:initialize) do |name|
     @name = name
     @food_level = 10
@@ -8,12 +10,24 @@ class Tamagotchi
     @creation_time = Time.new()
   end
 
+  define_singleton_method(:all) do
+    @@all_tama
+  end
+
+  define_method(:save) do
+    @@all_tama.push(self)
+  end
+
   define_method(:name) do
     @name
   end
 
+  define_method(:life_update) do
+    @food_level + @sleep_level + @activity_level
+  end
+
   define_method(:life_level) do
-    @life_level
+    @life_level = self.life_update()
   end
 
   define_method(:is_alive?) do
@@ -24,32 +38,31 @@ class Tamagotchi
     end
   end
 
-  define_method(:life_suck) do |points|
-    @life_level = @life_level - points
-  end
-
   define_method(:food_level) do
     @food_level
   end
 
-  define_method(:food_suck) do |points|
-    @food_level = @food_level - points
+  define_method(:add_food) do
+    @food_level += 1
+    self.update_pet(self.time_passes)
   end
 
   define_method(:sleep_level) do
     @sleep_level
   end
 
-  define_method(:sleep_suck) do |points|
-    @sleep_level = @sleep_level - points
+  define_method(:add_sleep) do
+    @sleep_level += 1
+    self.update_pet(self.time_passes)
   end
 
   define_method(:activity_level) do
     @activity_level
   end
 
-  define_method(:activity_suck) do |points|
-    @activity_level = @activity_level - points
+  define_method(:add_activity) do
+    @activity_level += 1
+    self.update_pet(self.time_passes)
   end
 
   define_method(:time_passes) do

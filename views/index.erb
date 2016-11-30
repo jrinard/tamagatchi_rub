@@ -1,0 +1,37 @@
+<h1>Create a Tamagotchi</h1>
+
+<p>Name your pet</p>
+
+<form action="/new" method='post'>
+  <label for ="name">Name</label>
+  <input id="name" name="name" type="text">
+
+  <button type="submit" class="btn btn-danger">Create Pet</button>
+</form>
+
+<ul>
+  <% @tamagotchi.each do |pet| %>
+    <li><%= pet.name() %>s levels: </li>
+    <li>Food Level: <%= pet.food_level() %></li>
+    <li>Sleep Level: <%= pet.sleep_level() %></li>
+    <li>Activity Level: <%= pet.activity_level() %></li>
+    <li>Health Level<%= pet.life_level() %></li>
+  <% end %>
+</ul>
+
+
+<form action="/status" method="post">
+  <button type="submit" class="btn btn-danger">Update Status</button>
+</form>
+
+<form action="/feed" method="post">
+  <button type="submit" class="btn btn-danger">Feed</button>
+</form>
+
+<form action="/play" method="post">
+  <button type="submit" class="btn btn-danger">Play</button>
+</form>
+
+<form action="/sleep" method="post">
+  <button type="submit" class="btn btn-danger">Sleep</button>
+</form>

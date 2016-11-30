@@ -10,10 +10,10 @@ describe(Tamagotchi) do
     end
   end
 
-  describe('#life_suck') do
-    it("decreases life level") do
+  describe('#life_level') do
+    it("returns life level") do
       new_pet = Tamagotchi.new("dude")
-      new_pet.life_suck(15)
+      new_pet.update_pet(5)
       expect(new_pet.life_level()).to(eq(15))
     end
   end
@@ -26,32 +26,32 @@ describe(Tamagotchi) do
 
     it("is dead if the life level is 0") do
       new_pet = Tamagotchi.new("Trogdor")
-      new_pet.life_suck(30)
+      new_pet.update_pet(10)
       expect(new_pet.is_alive?()).to(eq(false))
     end
   end
 
-  describe('#food_suck') do
-    it('decrease food level') do
+  describe('#add_food') do
+    it('increases food level') do
       new_pet = Tamagotchi.new("Trogdor")
-      new_pet.food_suck(5)
-      expect(new_pet.food_level()).to(eq(5))
+      new_pet.add_food()
+      expect(new_pet.food_level()).to(eq(11))
   end
 end
 
-  describe('#sleep_suck') do
-    it('decrease sleep level') do
+  describe('#add_sleep') do
+    it('increases sleep level') do
       new_pet = Tamagotchi.new("Trogdor")
-      new_pet.sleep_suck(5)
-      expect(new_pet.sleep_level()).to(eq(5))
+      new_pet.add_sleep()
+      expect(new_pet.sleep_level()).to(eq(11))
     end
   end
 
-  describe('#activity_suck') do
+  describe('#add_activity') do
     it('decrease activity level') do
       new_pet = Tamagotchi.new("Trogdor")
-      new_pet.activity_suck(5)
-      expect(new_pet.activity_level()).to(eq(5))
+      new_pet.add_activity()
+      expect(new_pet.activity_level()).to(eq(11))
     end
   end
 

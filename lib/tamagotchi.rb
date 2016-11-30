@@ -74,7 +74,7 @@ class Tamagotchi
     @food_level -= time
     @sleep_level -= time
     @activity_level -= time
-    @life_level -= (time * 3)
     @creation_time = Time.new()
+    self.life_level()
   end
 end

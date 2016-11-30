@@ -13,8 +13,8 @@ describe(Tamagotchi) do
   describe('#life_level') do
     it("returns life level") do
       new_pet = Tamagotchi.new("dude")
-      new_pet.update_pet(5)
-      expect(new_pet.life_level()).to(eq(15))
+      new_pet.update_pet(1)
+      expect(new_pet.life_level()).to(eq(27))
     end
   end
 
@@ -36,6 +36,7 @@ describe(Tamagotchi) do
       new_pet = Tamagotchi.new("Trogdor")
       new_pet.add_food()
       expect(new_pet.food_level()).to(eq(11))
+      expect(new_pet.life_level()).to(eq(31))
   end
 end
 
@@ -44,6 +45,7 @@ end
       new_pet = Tamagotchi.new("Trogdor")
       new_pet.add_sleep()
       expect(new_pet.sleep_level()).to(eq(11))
+      expect(new_pet.life_level()).to(eq(31))
     end
   end
 
@@ -52,6 +54,7 @@ end
       new_pet = Tamagotchi.new("Trogdor")
       new_pet.add_activity()
       expect(new_pet.activity_level()).to(eq(11))
+      expect(new_pet.life_level()).to(eq(31))
     end
   end
 
